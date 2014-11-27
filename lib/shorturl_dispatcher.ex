@@ -1,0 +1,2 @@
+defmodule ShorturlDispatcher do
+end
