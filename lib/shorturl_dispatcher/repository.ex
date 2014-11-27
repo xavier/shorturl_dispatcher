@@ -1,11 +1,14 @@
 defmodule ShorturlDispatcher.Repository do
-
-  @urls %{
-    "foo" => "http://example.com",
-    "bar" => "http://spam.com"
-  }
+  import Ecto.Query
 
   def fetch_by_code(code) do
-    Dict.fetch(@urls, code)
+    query = from su in ShorturlDispatcher.Shorturl,
+      where: su.code == ^code,
+      limit: 1,
+      select: su.url
+    case ShorturlDispatcher.Datastore.all(query) do
+      [url] -> {:ok, url}
+      []    -> :error
+    end
   end
 end

@@ -12,7 +12,17 @@ defmodule ShorturlDispatcher.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: [:logger, :mix, :plug]]
+    [
+      mod: {ShorturlDispatcher, []},
+      applications: 
+      [
+        :logger, 
+        :mix, 
+        :plug,
+        :postgrex, 
+        :ecto
+      ]
+    ]
   end
 
   # Dependencies can be Hex packages:
@@ -27,7 +37,9 @@ defmodule ShorturlDispatcher.Mixfile do
   defp deps do
     [
       {:cowboy, "~> 1.0.0"},
-      {:plug, "~> 0.8.0"}
+      {:plug, "~> 0.8.0"},
+      {:postgrex, ">= 0.0.0"}, 
+      {:ecto, "~> 0.2.0"}
     ]
   end
 end
