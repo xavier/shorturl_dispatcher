@@ -14,12 +14,12 @@ defmodule ShorturlDispatcher.Mixfile do
   def application do
     [
       mod: {ShorturlDispatcher, []},
-      applications: 
+      applications:
       [
-        :logger, 
-        :mix, 
+        :logger,
+        :mix,
         :plug,
-        :postgrex, 
+        :postgrex,
         :ecto
       ]
     ]
@@ -38,7 +38,8 @@ defmodule ShorturlDispatcher.Mixfile do
     [
       {:cowboy, "~> 1.0.0"},
       {:plug, "~> 0.8.0"},
-      {:postgrex, ">= 0.0.0"}, 
+      {:plug_test_helpers, "~> 0.1.0"},
+      {:postgrex, ">= 0.0.0"},
       {:ecto, "~> 0.2.0"}
     ]
   end
